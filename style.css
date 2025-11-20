@@ -1,0 +1,414 @@
+:root {
+    --primary-color: #00bcd4; /* Cyan/Accent Color */
+    --background-color: #1a1a1a; /* Dark Background */
+    --text-color: #f0f0f0; /* Light Text */
+    --card-bg: #2a2a2a; /* Slightly lighter card background */
+}
+
+/* **CSS ADDITION FOR SMOOTH SCROLLING** */
+html {
+    scroll-behavior: smooth; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Optional: Adding a transition for smoother general element changes */
+    transition: all 0.2s ease-in-out; 
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* --- Navigation & Header --- */
+header {
+    background-color: rgba(26, 26, 26, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    font-size: 1.8em;
+}
+
+#nav-menu {
+    list-style: none;
+    display: flex;
+}
+
+#nav-menu li a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: color 0.3s;
+}
+
+#nav-menu li a:hover {
+    color: var(--primary-color);
+}
+
+.menu-toggle {
+    display: none; /* Hide on desktop */
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bold;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+.primary-btn:hover {
+    background-color: #008c99;
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background-color: var(--card-bg);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.small-btn {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    margin-right: 10px;
+}
+
+/* --- Hero Section --- */
+#hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 85vh;
+    gap: 40px;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 3em;
+}
+
+.hero-img img {
+    max-width: 60%;
+    height: auto;
+    border-radius: 50%; /* Circular image */
+    border: 7px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(0, 188, 212, 0.5);
+    margin-left: 300px;
+}
+
+/* --- Skills Section --- */
+.skills-grid {
+    display: grid;
+    /* Uses auto-fit to make columns responsive */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px;
+    padding-top: 20px;
+}
+
+.skill-category {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px; /* Rounded corners */
+    border: 1px solid rgba(0, 188, 212, 0.2); /* Subtle light border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Lifted appearance */
+}
+
+/* Hover effect for skills */
+.skill-category:hover {
+    transform: translateY(-8px); /* Lifts the card */
+    box-shadow: 0 10px 25px rgba(0, 188, 212, 0.25); /* Adds a primary color glow */
+}
+
+.skill-category h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgba(0, 188, 212, 0.5); /* Separator line */
+    padding-bottom: 5px;
+    font-size: 1.3em;
+}
+
+.skill-category ul {
+    list-style: none;
+    display: flex; /* Use Flexbox for cleaner skill item layout */
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-category li {
+    background-color: #383838; /* Background for individual skill tags */
+    color: var(--text-color);
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: 500;
+    border: 1px solid #555;
+    transition: background-color 0.2s;
+}
+
+/* Hover for individual skill tags (optional, but adds polish) */
+.skill-category li:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+/* --- Projects Section --- */
+.projects-grid {
+    display: grid;
+    /* Responsive grid: minimum card size of 300px */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px; /* Increased gap for better spacing */
+    padding-top: 20px;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    /* Subtle border matching the skills section */
+    border: 1px solid rgba(0, 188, 212, 0.2); 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    /* Ensures minimum card height is consistent */
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Enhanced Hover Effect for Projects */
+.project-card:hover {
+    transform: translateY(-10px); /* Lifts the card slightly higher than skill cards */
+    box-shadow: 0 15px 30px rgba(0, 188, 212, 0.35); /* Stronger primary color glow */
+}
+
+.project-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.project-card p {
+    margin-bottom: 15px;
+    color: #b0b0b0; /* Slightly lighter gray for descriptions */
+    flex-grow: 1; /* Allows the description to take up space */
+}
+
+/* Technology Badges */
+.tech-badges {
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.tech-badges span {
+    display: inline-block;
+    background-color: #383838; /* Matches the background of skill tags */
+    color: var(--primary-color);
+    font-size: 0.8em;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    border: 1px solid var(--primary-color);
+    font-weight: bold;
+}
+
+.project-links {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+/* --- Contact Section --- */
+#contact {
+    text-align: center; /* Center the heading and form container */
+}
+
+#contact h2 {
+    margin-bottom: 40px;
+    font-size: 2.2em;
+}
+
+.contact-form {
+    max-width: 600px; /* Constrain form width */
+    margin: 0 auto;
+    padding: 30px;
+    background-color: var(--card-bg); /* Use the card background for the form area */
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 188, 212, 0.3);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #444; /* Darker border */
+    background-color: #333; /* Dark input background */
+    color: var(--text-color);
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Attractive Focus Effect on Inputs */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(0, 188, 212, 0.6); /* Primary color glow on focus */
+    outline: none; /* Remove default blue outline */
+}
+
+.contact-form textarea {
+    resize: vertical; /* Allow vertical resizing only */
+}
+
+/* Ensure the submit button uses the attractive primary style */
+.contact-form .primary-btn {
+    width: 100%; /* Full width button */
+    padding: 15px;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #333;
+    font-size: 0.9em;
+}
+
+/* ---------------------------------- */
+/* --- RESPONSIVENESS (Mobile First) --- */
+/* ---------------------------------- */
+
+@media (max-width: 768px) {
+    
+    /* Navigation Toggle */
+    #nav-menu {
+        /* Mobile menu setup */
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Below the header */
+        left: 0;
+        background-color: var(--background-color);
+        padding: 10px 0;
+        border-top: 1px solid #333;
+    }
+
+    #nav-menu.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block; /* Show the toggle button */
+    }
+
+    /* Hero */
+    #hero {
+        flex-direction: column; /* Stack image and content */
+        text-align: center;
+        min-height: auto;
+        padding-top: 80px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+    
+    .hero-img {
+        order: -1; /* Move image above text on mobile */
+        margin-bottom: 30px;
+    }
+
+    .hero-img img {
+        width: 180px;
+        height: 180px;
+    }
+
+    /* General Padding Adjustments */
+    .section-padding {
+        padding: 50px 0;
+    }
+    /* --- Global Styles & Reset --- */
+:root {
+    --primary-color: #00bcd4; /* Cyan/Accent Color */
+    --background-color: #1a1a1a; /* Dark Background */
+    --text-color: #f0f0f0; /* Light Text */
+    --card-bg: #2a2a2a; /* Slightly lighter card background */
+}
+
+/* **CSS ADDITION FOR SMOOTH SCROLLING** */
+html {
+    scroll-behavior: smooth; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Optional: Adding a transition for smoother general element changes */
+    transition: all 0.2s ease-in-out; 
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+/* ... (The rest of your previous CSS code follows below) ... */
+}
